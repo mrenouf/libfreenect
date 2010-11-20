@@ -1,0 +1,27 @@
+== Credits ==
+
+This document was compiled via multiple sources (wiki, IRC logs, code,
+personal knowledge) by Kyle Machulis (qDot), who is contactable at
+kyle@nonpolynomial.com, or http://www.nonpolynomial.com
+
+Credits for early versions of this documentation on the wiki
+
+- Josh Blake (http://nui.joshland.org)
+- Github user ab500 (http://www.github.com/ab500)
+- Github user hddscan (http://www.github.com/hddscan)
+
+Credits for protocol portions
+
+- Héctor Martín Cantero (http://marcansoft.com/blog/) for most of the
+  work on the camera protocol
+- Josh Blake (http://nui.joshland.org) for the LED messages 
+- Limor Fried (http://www.adafruit.com) for the motor commands
+- Whoever cracks the audio first for the audio
+
+Credits for USB dumps leading to protocol info
+
+- Thanks also to Limor Fried (http://www.adafruit.net) for the initial
+  USB dumps for the motor, LED and Camera
+- Rafael Rivera (http://withinwindows.com) for the USB dumps for audio
+  reversing.
+
