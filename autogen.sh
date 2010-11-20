@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/sh -e
+test -n "$srcdir" || srcdir=`dirname "$0"`
+test -n "$srcdir" || srcdir=.
+
 touch NEWS README AUTHORS ChangeLog
-automake --add-missing
-autoreconf
+autoreconf --force --install --verbose "$srcdir"
+test -n "$NOCONFIGURE" || "$srcdir/configure" "$@"
