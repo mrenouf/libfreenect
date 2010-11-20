@@ -14,7 +14,7 @@ pkgconfigdir = $(libdir)/pkgconfig
 
 bin_PROGRAMS = glview
 
-glview_SOURCES = example/glview.c
+glview_SOURCES = examples/glview.c
 glview_LDADD = $(GLUT_LIBS)  -lpthread -lfreenect
 
 ## Define an independent executable script for inclusion in the distribution

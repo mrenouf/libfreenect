@@ -7,7 +7,7 @@ AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_CONFIG_SRCDIR([lib/usb_libusb10.c])
-AC_CONFIG_SRCDIR([example/glview.c])
+AC_CONFIG_SRCDIR([examples/glview.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile libfreenect.pc])
 
