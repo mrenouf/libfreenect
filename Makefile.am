@@ -17,6 +17,4 @@ bin_PROGRAMS = glview
 glview_SOURCES = examples/glview.c
 glview_LDADD = $(GLUT_LIBS)  -lpthread -lfreenect
 
-## Define an independent executable script for inclusion in the distribution
-## archive. It will not be installed on an end user's system, however.
-#dist_noinst_SCRIPTS = autogen.sh
+dist_noinst_SCRIPTS = autogen.sh
