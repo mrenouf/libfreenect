@@ -36,6 +36,7 @@ NEWS
 AUTHORS
 m4/*.m4
 ltmain.sh
+install-sh
 depcomp
 configure
 config.log
