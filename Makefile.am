@@ -3,11 +3,11 @@ ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS} -I m4
 AM_CPPFLAGS = $(LIBUSB_CFLAGS) $(GLUT_CFLAGS) -Iinclude
 
 lib_LTLIBRARIES = libfreenect.la
-libfreenect_la_SOURCES = lib/cameras.c lib/core.c \
-	lib/inits.c lib/tilt.c lib/usb_libusb10.c
+libfreenect_la_SOURCES = src/cameras.c src/core.c \
+	src/inits.c src/tilt.c src/usb_libusb10.c
 libfreenect_la_LIBADD = $(LIBUSB_LIBS)
 
-library_includedir=$(includedir)/freenect-1.0/freenect
+library_includedir=$(includedir)/freenect
 library_include_HEADERS = include/libfreenect.h
 
 pkgconfigdir = $(libdir)/pkgconfig
