@@ -6,6 +6,7 @@ lib_LTLIBRARIES = libfreenect.la
 libfreenect_la_SOURCES = src/cameras.c src/core.c \
 	src/inits.c src/tilt.c src/usb_libusb10.c
 libfreenect_la_LIBADD = $(LIBUSB_LIBS)
+libfreenect_la_LDFLAGS = -version-info $(LIBFREENECT_VERSION)
 
 library_includedir=$(includedir)/freenect
 library_include_HEADERS = include/libfreenect.h
@@ -13,6 +14,7 @@ library_include_HEADERS = include/libfreenect.h
 pkgconfigdir = $(libdir)/pkgconfig
 
 bin_PROGRAMS = glview
+noinst_PROGRAMS = glview
 
 glview_SOURCES = examples/glview.c
 glview_LDADD = $(GLUT_LIBS)  -lpthread -lfreenect

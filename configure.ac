@@ -11,6 +11,15 @@ AC_CONFIG_SRCDIR([examples/glview.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile libfreenect.pc])
 
+# soname version for libfreenect (should this be defined elsewhere?)
+# interface # : revision : age (backward compatibility)
+LIBFREENECT_VERSION='0:0:0' # so.0.0.0
+#LIBFREENECT_VERSION='1:0:1' # so.0.1.0
+#LIBFREENECT_VERSION='0:1:0' # so.0.0.1
+#LIBFREENECT_VERSION='1:0:0' # so.1.0.0
+
+AC_SUBST([LIBFREENECT_VERSION])
+
 LT_INIT
 
 # Checks for programs.
