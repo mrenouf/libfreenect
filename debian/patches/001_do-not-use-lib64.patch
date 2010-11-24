@@ -1,0 +1,12 @@
+diff -Nur -x '*.orig' -x '*~' libfreenect//cmake_modules/SetupDirectories.cmake libfreenect.new//cmake_modules/SetupDirectories.cmake
+--- libfreenect//cmake_modules/SetupDirectories.cmake	2010-11-24 07:46:29.428921003 -0500
++++ libfreenect.new//cmake_modules/SetupDirectories.cmake	2010-11-24 07:57:33.758921000 -0500
+@@ -17,7 +17,7 @@
+     SET (LIB_SUFFIX "" CACHE STRING "Suffix for library installation directory")
+ ENDIF (PROJECT_PROC_64BIT)
+ 
+-SET (PROJECT_LIBRARY_INSTALL_DIR "lib${LIB_SUFFIX}")
++SET (PROJECT_LIBRARY_INSTALL_DIR "lib")
+ 
+ MESSAGE (STATUS "Headers will be installed to ${CMAKE_INSTALL_PREFIX}/${PROJECT_INCLUDE_INSTALL_DIR}")
+ MESSAGE (STATUS "Libraries will be installed to ${CMAKE_INSTALL_PREFIX}/${PROJECT_LIBRARY_INSTALL_DIR}")

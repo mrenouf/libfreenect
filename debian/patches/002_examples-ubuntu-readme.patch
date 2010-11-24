@@ -1,0 +1,21 @@
+diff -Nur -x '*.orig' -x '*~' libfreenect//examples/README libfreenect.new//examples/README
+--- libfreenect//examples/README	1969-12-31 19:00:00.000000000 -0500
++++ libfreenect.new//examples/README	2010-11-24 08:02:45.688920999 -0500
+@@ -0,0 +1,17 @@
++Compiling examples
++
++glview.c:
++  The original test app which displays two video windows representing
++  the depth sensor output and the video camera image from the Kinect.
++  Controls are also available to change the tilt and the accelerometer
++  output is shown in the console.
++
++  This demo requires OpenGL support, so you will need to install
++  those first:
++
++  apt-get install freeglut3-dev
++
++  Then, to compile:
++
++  gcc -o glview $(pkg-config --cflags --libs libfreenect) -lglut glview.c
++  ./glview

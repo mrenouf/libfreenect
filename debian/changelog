@@ -1,0 +1,44 @@
+libfreenect (0.0+git9e74af83) maverick; urgency=low
+  
+  * New upstream snapshot
+
+  [ Hector Martin ]
+  * Rewrite init code, split off depth and RGB inits
+  * Add support for RGB/Depth stream shutdown
+  * Squelch streaming errors until two valid frames arrive
+  * Depth unpacking macro -> inline function
+  * Support returning raw packed depth data
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Mon, 22 Nov 2010 19:53:00 -0500
+
+libfreenect (0.0-5) maverick; urgency=low
+
+  * Fixed a ton of lintian warnings.
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Sun, 21 Nov 2010 20:23:44 -0500
+
+libfreenect (0.0-4) maverick; urgency=low
+
+  * Fix amd64 static library install path
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Sun, 21 Nov 2010 16:02:43 -0500
+
+libfreenect (0.0-3) maverick; urgency=low
+
+  * Fixed i386 build
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Sun, 21 Nov 2010 15:36:05 -0500
+
+libfreenect (0.0-2) maverick; urgency=low
+
+  * Updated accelerometers.c, motors.c => tilt.c
+  * Udev rules for Microsoft Kinect device.
+  * Debian build
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Sun, 21 Nov 2010 09:31:16 -0500
+
+libfreenect (0.0-1) unstable; urgency=low
+
+  * Initial release 
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Sat, 20 Nov 2010 16:05:07 -0500

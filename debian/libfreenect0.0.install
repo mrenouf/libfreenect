@@ -1,0 +1,2 @@
+usr/lib/*.so.* 
+udev/51-kinect.rules lib/udev/rules.d
