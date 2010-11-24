@@ -1,3 +1,37 @@
+libfreenect (0.1~1.git539b28e-1) maverick; urgency=low
+
+  * New upstream snapshot
+
+  [ Hector Martin ]
+  * Disable RGB hflip after stream activation, otherwise it fails
+  * glview: Switch Kinect stuff to secondary thread, GLUT to main
+  * Remove unnecessary libjpeg dependency
+
+  [ Rich ]
+  * Fixed CMake error in glview: FindOpenGL.cmake (find_package(OpenGL))
+    sets variables of the form "OPENGL_LIBRARIES," not
+    "OpenGL_LIBRARIES."
+  * Missed OpenGL Include directories from previous commit.
+
+  [ Kyle Machulis ]
+  * Added fPIC for linux building
+
+  [ Kyle Machulis ]
+  * Removed doubled up apache license
+  * Moved concise apache 2 license to more descriptive filename
+
+  [ Mark Renouf ]
+  * Udev rule for Kinect USB
+
+  [ Mark Renouf ]
+  * Fix file paths for installing docs on Linux
+  * cmake: Configure and install a pkg-config file on Linux
+
+  [ Vincent Le Ligeour ]
+  * Fixed C++ binding according to new depth callback prototype
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Wed, 24 Nov 2010 08:21:00 -0500
+
 libfreenect (0.0+git9e74af83) maverick; urgency=low
   
   * New upstream snapshot
