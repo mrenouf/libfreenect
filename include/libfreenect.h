@@ -36,6 +36,7 @@ extern "C" {
 typedef uint16_t freenect_depth;
 typedef uint8_t freenect_packed_depth;
 typedef uint8_t freenect_pixel;
+typedef uint16_t freenect_pixel_ir;
 
 #define FREENECT_FRAME_W 640
 #define FREENECT_FRAME_H 480
@@ -48,6 +49,7 @@ typedef uint8_t freenect_pixel;
 typedef enum {
 	FREENECT_FORMAT_RGB = 0,
 	FREENECT_FORMAT_BAYER = 1,
+	FREENECT_FORMAT_IR = 2,
 } freenect_rgb_format;
 
 typedef enum {
@@ -108,16 +110,20 @@ void *freenect_get_user(freenect_device *dev);
 
 typedef void (*freenect_depth_cb)(freenect_device *dev, void *depth, uint32_t timestamp);
 typedef void (*freenect_rgb_cb)(freenect_device *dev, freenect_pixel *rgb, uint32_t timestamp);
+typedef void (*freenect_ir_cb)(freenect_device *dev, freenect_pixel_ir *rgb, uint32_t timestamp);
 
 void freenect_set_depth_callback(freenect_device *dev, freenect_depth_cb cb);
 void freenect_set_rgb_callback(freenect_device *dev, freenect_rgb_cb cb);
+void freenect_set_ir_callback(freenect_device *dev, freenect_ir_cb cb);
 int freenect_set_rgb_format(freenect_device *dev, freenect_rgb_format fmt);
 int freenect_set_depth_format(freenect_device *dev, freenect_depth_format fmt);
 
-int freenect_start_depth(freenect_device *dev);
-int freenect_start_rgb(freenect_device *dev);
-int freenect_stop_depth(freenect_device *dev);
-int freenect_stop_rgb(freenect_device *dev);
+int freenect_start_depth (freenect_device *dev);
+int freenect_start_rgb (freenect_device *dev);
+int freenect_start_ir (freenect_device *dev);
+int freenect_stop_depth (freenect_device *dev);
+int freenect_stop_rgb (freenect_device *dev);
+int freenect_stop_ir (freenect_device *dev);
 
 int freenect_set_tilt_degs(freenect_device *dev, double angle);
 int freenect_set_led(freenect_device *dev, freenect_led_options option);

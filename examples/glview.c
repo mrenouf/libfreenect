@@ -50,6 +50,7 @@ int g_argc;
 char **g_argv;
 
 int window;
+int ir_mode = 0;
 
 pthread_mutex_t gl_backbuf_mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -137,6 +138,21 @@ void keyPressed(unsigned char key, int x, int y)
 			freenect_angle = -30;
 		}
 	}
+    // Toggle the IR mode on/off
+     if (key == 'i')
+     {
+       if (ir_mode)
+       {
+          freenect_set_rgb_format (f_dev, FREENECT_FORMAT_RGB);
+          freenect_start_rgb (f_dev);
+       }
+       else
+       {
+          freenect_set_rgb_format (f_dev, FREENECT_FORMAT_IR);
+          freenect_start_ir (f_dev);
+       }
+       ir_mode = !ir_mode;
+    }
 	if (key == '1') {
 		freenect_set_led(f_dev,LED_GREEN);
 	}
@@ -200,7 +216,7 @@ void *gl_threadfunc(void *arg)
 	glutInitWindowSize(1280, 480);
 	glutInitWindowPosition(0, 0);
 
-	window = glutCreateWindow("LibFreenect");
+	window = glutCreateWindow ("Kinect Viewer Demo");
 
 	glutDisplayFunc(&DrawGLScene);
 	glutIdleFunc(&DrawGLScene);
@@ -277,12 +293,34 @@ void rgb_cb(freenect_device *dev, freenect_pixel *rgb, uint32_t timestamp)
 	pthread_mutex_unlock(&gl_backbuf_mutex);
 }
 
+void ir_cb (freenect_device * dev, freenect_pixel_ir * rgb, uint32_t timestamp)
+{
+  pthread_mutex_lock (&gl_backbuf_mutex);
+  got_frames++;
+
+  int i;
+  for (i = 0; i < FREENECT_FRAME_PIX; i++)
+  {
+    int pval = rgb[i];
+    pval = pval >> 2;
+    int lb = pval & 0xff;
+
+    gl_rgb_back[3 * i + 0] = lb;
+    gl_rgb_back[3 * i + 1] = lb;
+    gl_rgb_back[3 * i + 2] = lb;
+
+  }
+  pthread_cond_signal (&gl_frame_cond);
+  pthread_mutex_unlock (&gl_backbuf_mutex);
+}
+
 void *freenect_threadfunc(void *arg)
 {
 	freenect_set_tilt_degs(f_dev,freenect_angle);
 	freenect_set_led(f_dev,LED_RED);
 	freenect_set_depth_callback(f_dev, depth_cb);
 	freenect_set_rgb_callback(f_dev, rgb_cb);
+	freenect_set_ir_callback (f_dev, ir_cb);
 	freenect_set_rgb_format(f_dev, FREENECT_FORMAT_RGB);
 	freenect_set_depth_format(f_dev, FREENECT_FORMAT_11_BIT);
 
@@ -305,6 +343,7 @@ void *freenect_threadfunc(void *arg)
 
 	freenect_stop_depth(f_dev);
 	freenect_stop_rgb(f_dev);
+    freenect_stop_ir (f_dev);
 
 	freenect_close_device(f_dev);
 	freenect_shutdown(f_ctx);
