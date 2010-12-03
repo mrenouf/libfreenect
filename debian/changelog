@@ -1,3 +1,69 @@
+libfreenect (0.1~2.git2402fcd-1) maverick; urgency=low
+
+  [ Hector Martin ]
+  * Implement library and device shutdown and clean up USB open somewhat
+
+  [ Stéphane Magnenat ]
+  * Added state retrieval for accelerometer and tilt position/status.
+
+  [ Hector Martin ]
+  * Fix dropped packet count calculation
+
+  [ Andrew ]
+  * Include directory for libusb-1.0 in the main cmakelists.txt
+
+  [ Hector Martin ]
+  * Reject format changes when streams are active
+  * Move packed depth buffer sizes to public header
+  * Free libusb transfers (fix memory leak)
+  * Fix out of bounds memory access in depth unpacking
+  * Fix broken demosaicing and out of bounds buffer access
+
+  [ Jochen Kerdels ]
+  * Optimized unpacking of depth data regarding speed and memory
+    boundaries
+
+  [ Hector Martin ]
+  * Refactor stream buffering and move bufs to heap
+
+  [ Hector Martin ]
+  * Add support for setting user-controlled buffers
+  * Use new buffer stuff in glview
+
+  [ Jochen Kerdels ]
+  * Added slightly faster bayer pattern to rgb conversion
+
+  [ Hector Martin ]
+  * Move bayer to RGB to a separate function
+
+  [ Juan Carlos del Valle ]
+  * Accelerometer fixes to work with new structure.
+
+  [ Andrew ]
+  * Added a wrappers section to the readme
+
+  [ Hector Martin ]
+  * Move tilt code back into tilt.c and rename device_state ->
+    tilt_state
+  * Make libfreenect endian-independent
+  * Rename format/size constants and enums
+  * Rename *rgb* functions to *video* + internals
+  * Get rid of freenect_[packed_]depth
+  * Support IR video stream
+  * Add IR video option to glview
+
+  [ Brandyn A. White ]
+  * 1. Updated more RGB->Video stuff.
+
+  [ Andrew ]
+  * Updated the README with a ./configure fix for libusb on OX
+
+  [ Juan Carlos del Valle ]
+  * Server depth format fix. RGB/DEPTH FIX, images should look OK now in
+    client.
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Thu, 02 Dec 2010 23:44:27 -0500
+
 libfreenect (0.1~1.git539b28e-1) maverick; urgency=low
 
   * New upstream snapshot
