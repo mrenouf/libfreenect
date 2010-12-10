@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+  configure)
+  if dpkg --compare-versions "$2" lt 1.2.0-4; then
+    if [ `uname -s` = "Linux" ]; then
+      udevadm trigger --subsystem-match=input --action=change
+    fi
+  fi
+esac
+
+exit 0
