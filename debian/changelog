@@ -1,3 +1,41 @@
+libfreenect (0.1~3.gitb75e303) maverick; urgency=low
+
+  New upstream snapshot from stable branch:
+  https://github.com/OpenKinect/libfreenect.git
+
+  [ Hector Martin ]
+  * Implement library and device shutdown and clean up USB open somewhat
+  * Fix dropped packet count calculation
+  * Reject format changes when streams are active
+  * Move packed depth buffer sizes to public header
+  * Free libusb transfers (fix memory leak)
+  * Fix out of bounds memory access in depth unpacking
+  * Fix broken demosaicing and out of bounds buffer access
+  * Refactor stream buffering and move bufs to heap
+  * Add support for setting user-controlled buffers
+  * Use new buffer stuff in glview
+  * Move bayer to RGB to a separate function
+  * Move tilt code back into tilt.c and rename device_state ->
+    tilt_state
+  * Make libfreenect endian-independent
+  * Rename format/size constants and enums
+  * Rename *rgb* functions to *video* + internals
+  * Get rid of freenect_[packed_]depth
+  * Support IR video stream
+  * Rename YUV size constant and add YUV_RGB one for consistency
+
+  [ Jochen Kerdels ]
+  * Optimized unpacking of depth data regarding speed and memory
+    boundaries
+
+  [ Jochen Kerdels ]
+  * Added slightly faster bayer pattern to rgb conversion
+
+  [ Drew Fisher ]
+  * Add UYVY image format support.
+
+ -- Mark Renouf <mark.renouf@gmail.com>  Fri, 10 Dec 2010 08:08:59 -0500
+
 libfreenect (0.1~2.git2402fcd-1) maverick; urgency=low
 
   [ Hector Martin ]
